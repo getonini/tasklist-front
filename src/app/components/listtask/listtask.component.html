@@ -1,0 +1,31 @@
+<div class="container">
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Descricao</th>
+            <th>Concluída</th>
+            <th>Data Criação</th>
+            <th>Data Alteração</th>
+            <th>Data Conclusão</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{task.id}}</td>
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td><input class="roundedTwo" type="checkbox" [(ngModel)]="task.status" (click)="changeStatus(task)"></td>
+                <td>{{task.creationDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{task.lastUpdateDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{task.conclusionDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="updateTask(task)">Editar</button>
+                    <button class="btn btn-danger" (click)="deleteTask(task)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" (click)="newTask()">Nova Tarefa</button>
+</div>

@@ -1,0 +1,21 @@
+
+<div class="container margin-top-20">
+  <form (ngSubmit)="processForm()">
+      <br><br>
+      <div class="form group">
+          <label for="taskTitle">Título*</label>
+          <input type="text" name="taskTitle" class="campos form-control" [(ngModel)]="task.title" required>
+      </div>
+      <br>
+      <div class="form group">
+          <label for="description">Descrição</label>
+          <input type="text" name="description" class="campos form-control" [(ngModel)]="task.description">
+      </div>
+      <br>
+      <div>
+        <input class="roundedTwo" type="checkbox" [(ngModel)]="task.status" [ngModelOptions]="{standalone: true}">  Concluída
+      </div>
+      <br>
+      <input type="submit" value="Salvar" class="btn btn-success">
+  </form>
+</div>
